@@ -1,4 +1,4 @@
-import { riotKey } from '.';
+import { count, riotKey } from '.';
 import { Match, MatchId, PlayerData } from './models';
 import { RiotResponse, decodeRiotData } from './utils';
 
@@ -29,7 +29,7 @@ export async function getMatches(
   );
   if (queue) url.searchParams.append('queue', String(queue));
   url.searchParams.append('start', String(start));
-  url.searchParams.append('count', '20');
+  url.searchParams.append('count', String(count));
   url.searchParams.append('startTime', String(1652274000));
 
   const req = new Request(url, { headers: { 'X-Riot-Token': riotKey } });

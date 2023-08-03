@@ -12,7 +12,7 @@ const region = process.env.REGION;
 const group = process.env.GROUP;
 const username = process.env.USERNAME;
 
-const count = 100;
+export const count = 100;
 const total = 1000;
 
 async function crawlMatches(region: string, group: string, username: string) {
@@ -32,6 +32,8 @@ async function crawlMatches(region: string, group: string, username: string) {
       console.log(matchesRes.error);
       return;
     }
+
+    if (matches.length === 0) break;
 
     for (const matchId of matches) {
       process.stdout.write('.');
