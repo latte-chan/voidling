@@ -16,6 +16,8 @@ export async function getProfile(
   return await decodeRiotData(res);
 }
 
+// start time 1652274000 11th May 2022 09:00
+
 export async function getMatches(
   group: string,
   puuid: string,
@@ -25,9 +27,10 @@ export async function getMatches(
   let url = new URL(
     `https://${group}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids`
   );
-  url.searchParams.append('start', String(start));
-  url.searchParams.append('count', '100');
   if (queue) url.searchParams.append('queue', String(queue));
+  url.searchParams.append('start', String(start));
+  url.searchParams.append('count', '20');
+  url.searchParams.append('startTime', String(1652274000));
 
   const req = new Request(url, { headers: { 'X-Riot-Token': riotKey } });
 
