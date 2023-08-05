@@ -1,4 +1,5 @@
-import { count, riotKey } from '.';
+import { riotKey } from '.';
+import { count } from './crawler';
 import { Match, MatchId, PlayerData } from './models';
 import { RiotResponse, decodeRiotData } from './utils';
 
